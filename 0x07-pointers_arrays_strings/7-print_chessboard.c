@@ -5,6 +5,7 @@
  * @a: 2D array representing the chessboard.
  *Return: Always 0 (Success)
  */
+
 void print_chessboard(char (*a)[8])
 {
 	unsigned int i, j;
