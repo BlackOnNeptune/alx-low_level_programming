@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * custom_pow_recursion - Calculates the power of a number
+ * _pow_recursion - Calculates the power
  * @x: The base number
  * @y: The exponent
  *
  * Return: The result of x raised to the power of y
  */
-int custom_pow_recursion(int x, int y)
+int _pow_recursion(int x, int y)
 {
 	if (y < 0)
 	{
@@ -15,7 +15,7 @@ int custom_pow_recursion(int x, int y)
 	}
 	else if (y != 0)
 	{
-		return (x * custom_pow_recursion(x, y - 1));
+		return (x * _pow_recursion(x, y - 1));
 	}
 	else
 	{
