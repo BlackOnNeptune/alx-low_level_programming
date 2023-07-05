@@ -1,14 +1,12 @@
 #include "main.h"
-
 /**
- * _factorial - Calculates the factorial of an integer
- * @n: The integer to calculate the factorial of
- *
- * Return: The factorial value
+ * factorial - factorial of int
+ * @n:int
+ * Return:int
  */
-int _factorial(int n)
+int factorial(int n)
 {
-	int result;
+	int x;
 
 	if (n == 0)
 	{
@@ -20,8 +18,8 @@ int _factorial(int n)
 	}
 	else
 	{
-		result = n * _factorial(n - 1);
+		x = n * factorial(n - 1);
 	}
+			return (x);
 
-	return (result);
 }
