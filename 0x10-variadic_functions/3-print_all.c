@@ -1,9 +1,4 @@
 #include "variadic_functions.h"
-#include <stdio.h>
-
-int count_format(const char * const format);
-void print_comma(int j, int x);
-char *make_nil(char *s);
 
 /**
  * print_all - print anything
@@ -11,6 +6,7 @@ char *make_nil(char *s);
  *
  * Return: void
  */
+
 void print_all(const char * const format, ...)
 {
 	int j = 0, last_arg;
@@ -19,36 +15,36 @@ void print_all(const char * const format, ...)
 
 	va_start(params, format);
 	while ((format != NULL) && (format[j]))
-{
-	last_arg = count_format(format);
-	type = *(format + j);
-	switch (type)
-{
-	case 'c':
-	printf("%c", va_arg(params, int));
-	print_comma(j, last_arg);
-	j++;
-	break;
-	case 'i':
-	printf("%d", va_arg(params, int));
-	print_comma(j, last_arg);
-	j++;
-	break;
-	case 'f':
-	printf("%f", va_arg(params, double));
-	print_comma(j, last_arg);
-	j++;
-	break;
-	case 's':
-	printf("%s", make_nil(va_arg(params, char *)));
-	print_comma(j, last_arg);
-	j++
-	break;
-	default:
-	j++;
-	break;
-}
-}
+	{
+		last_arg = count_format(format);
+		type = *(format + j);
+		switch (type)
+		{
+			case 'c':
+				printf("%c", va_arg(params, int));
+				print_comma(j, last_arg);
+				j++;
+				break;
+			case 'i':
+				printf("%d", va_arg(params, int));
+				print_comma(j, last_arg);
+				j++;
+				break;
+			case 'f':
+				printf("%f", va_arg(params, double));
+				print_comma(j, last_arg);
+				j++;
+				break;
+			case 's':
+				printf("%s", make_nil(va_arg(params, char *)));
+				print_comma(j, last_arg);
+				j++;
+				break;
+			default:
+				j++;
+			break;
+		}
+	}
 	printf("\n");
 	va_end(params);
 }
@@ -59,6 +55,7 @@ void print_all(const char * const format, ...)
  *
  * Return: count of the valid types
  */
+
 int count_format(const char * const format)
 {
 	int i = 0, j = 0;
@@ -66,30 +63,30 @@ int count_format(const char * const format)
 
 	while ((*(format + j) != '\0') && (format != NULL))
 	{
-	type = *(format + j);
-	switch (type)
-	{
-	case 'c':
-	i = j;
-	j++;
-	break;
-	case 'i':
-	i = j;
-	j++;
-	break;
-	case 'f':
-	i = j;
-	j++;
-	break;
-	case 's':
-	i = j;
-	j++;
-	break;
-	default:
-	j++;
-	break;
-}
-}
+		type = *(format + j);
+		switch (type)
+		{
+			case 'c':
+				i = j;
+				j++;
+				break;
+			case 'i':
+				i = j;
+				j++;
+				break;
+			case 'f':
+				i = j;
+				j++;
+				break;
+			case 's':
+				i = j;
+				j++;
+				break;
+			default:
+				j++;
+				break;
+		}
+	}
 
 	return (i);
 }
@@ -101,11 +98,12 @@ int count_format(const char * const format)
  *
  * Return: void
  */
+
 void print_comma(int j, int x)
 {
 	if (j != x)
 	{
-	printf(", ");
+		printf(", ");
 	}
 }
 
@@ -118,7 +116,7 @@ void print_comma(int j, int x)
 char *make_nil(char *s)
 {
 	if (s == NULL)
-	s = "(nil)";
+		s = "(nil)";
 
 	return (s);
 }
